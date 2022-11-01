@@ -6,6 +6,6 @@ on:
 #      - "main"
 jobs:
   call-kmmbridge-publish:
-    uses: hxxyyangyong/KMMBridgeGithubWorkflow/.github/workflows/KMMBridge-publish.yml
+    uses: kmmbridgeDemo/.github/workflows/KMMBridge-publish.yml
     secrets:
       PODSPEC_SSH_KEY: ${{ secrets.PODSPEC_SSH_KEY }}
