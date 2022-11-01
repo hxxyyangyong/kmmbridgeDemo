@@ -6,7 +6,7 @@ on:
 #      - "main"
 jobs:
   call-kmmbridge-publish:
-    uses: kmmbridgeDemo/.github/workflows/All-publish.yml
+    uses: touchlab/KMMBridgeGithubWorkflow/.github/workflows/faktorybuildbranches.yml@v0.6
     with:
       publishTask: kmmBridgePublish publishAndroidDebugPublicationToGitHubPackagesRepository publishAndroidReleasePublicationToGitHubPackagesRepository
     secrets:
