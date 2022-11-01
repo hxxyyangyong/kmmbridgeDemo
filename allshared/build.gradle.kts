@@ -35,16 +35,17 @@ kotlin {
 
     cocoapods {
         summary = "KMMBridgeKickStart sample"
-        homepage = "https://www.touchlab.co"
+        homepage = "https://www.touchlab.com"
         ios.deploymentTarget = "13.5"
+        version = "0.1.0"
         extraSpecAttributes["libraries"] = "'c++', 'sqlite3'"
-
+        source = "{ :git => 'https://github.com/hxxyyangyong/kmmspec.git',:tag => spec.version.to_s}"
         framework {
             export(project(":analytics"))
             isStatic = true
-
+            source = "dddd"
         }
-        source = "{ :git => 'https://github.com/hxxyyangyong/kmmspec.git',:tag => spec.version.to_s}"
+
         extraSpecAttributes["pod_target_xcconfig"] = """{
                     'PRODUCT_MODULE_NAME' => 'allshared',
                     'KOTLIN_PROJECT_PATH' => ':allshared',
@@ -58,7 +59,7 @@ kotlin {
     }
 }
 
-addGithubPackagesRepository()
+//addGithubPackagesRepository()
 
 kmmbridge {
     mavenPublishArtifacts()

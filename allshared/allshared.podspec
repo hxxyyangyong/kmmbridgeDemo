@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
     spec.name                     = 'allshared'
-    spec.version                  = '0.1'
-    spec.homepage                 = 'https://www.touchlab.co'
+    spec.version                  = '0.1.0'
+    spec.homepage                 = 'https://www.touchlab.com'
     spec.source                   = { :http=> ''}
     spec.authors                  = ''
     spec.license                  = ''
@@ -24,17 +24,19 @@ Pod::Spec.new do |spec|
                 fi
                 set -ev
                 REPO_ROOT="$PODS_TARGET_SRCROOT"
-                "$REPO_ROOT/../../../../../../private/var/folders/qg/bdbmd1ws2jsd73pc_dr3fzyw0000gq/T/wrap1960loc/gradlew" -p "$REPO_ROOT" $KOTLIN_PROJECT_PATH:syncFramework \
+                "$REPO_ROOT/../../../../../../private/var/folders/qg/bdbmd1ws2jsd73pc_dr3fzyw0000gq/T/wrap1144loc/gradlew" -p "$REPO_ROOT" $KOTLIN_PROJECT_PATH:syncFramework \
                     -Pkotlin.native.cocoapods.platform=$PLATFORM_NAME \
                     -Pkotlin.native.cocoapods.archs="$ARCHS" \
                     -Pkotlin.native.cocoapods.configuration="$CONFIGURATION"
             SCRIPT
         }
     ]
+
     spec.libraries = 'c++', 'sqlite3'
     spec.pod_target_xcconfig = {
                     'PRODUCT_MODULE_NAME' => 'allshared',
                     'KOTLIN_PROJECT_PATH' => ':allshared',
+                    'VALID_ARCHS' => 'x86_64 armv7 arm64',
                     'GENERATE_INFOPLIST_FILE' => 'YES',
                 }
             
