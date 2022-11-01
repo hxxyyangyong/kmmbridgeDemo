@@ -11,10 +11,6 @@ Pod::Spec.new do |spec|
     spec.ios.deployment_target = '13.5'
                 
                 
-    spec.pod_target_xcconfig = {
-        'KOTLIN_PROJECT_PATH' => ':allshared',
-        'PRODUCT_MODULE_NAME' => 'allshared',
-    }
                 
     spec.script_phases = [
         {
@@ -28,7 +24,7 @@ Pod::Spec.new do |spec|
                 fi
                 set -ev
                 REPO_ROOT="$PODS_TARGET_SRCROOT"
-                "$REPO_ROOT/../../../../../../private/var/folders/qg/bdbmd1ws2jsd73pc_dr3fzyw0000gq/T/wrap1139loc/gradlew" -p "$REPO_ROOT" $KOTLIN_PROJECT_PATH:syncFramework \
+                "$REPO_ROOT/../../../../../../private/var/folders/qg/bdbmd1ws2jsd73pc_dr3fzyw0000gq/T/wrap1960loc/gradlew" -p "$REPO_ROOT" $KOTLIN_PROJECT_PATH:syncFramework \
                     -Pkotlin.native.cocoapods.platform=$PLATFORM_NAME \
                     -Pkotlin.native.cocoapods.archs="$ARCHS" \
                     -Pkotlin.native.cocoapods.configuration="$CONFIGURATION"
@@ -36,4 +32,14 @@ Pod::Spec.new do |spec|
         }
     ]
     spec.libraries = 'c++', 'sqlite3'
+    spec.pod_target_xcconfig = {
+                    'PRODUCT_MODULE_NAME' => 'allshared',
+                    'KOTLIN_PROJECT_PATH' => ':allshared',
+                    'GENERATE_INFOPLIST_FILE' => 'YES',
+                }
+            
+    spec.user_target_xcconfig = {
+                    'GENERATE_INFOPLIST_FILE' => 'YES'
+                }
+            
 end

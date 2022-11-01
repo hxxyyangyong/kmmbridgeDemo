@@ -42,7 +42,19 @@ kotlin {
         framework {
             export(project(":analytics"))
             isStatic = true
+
         }
+        source = "{ :git => 'https://github.com/hxxyyangyong/kmmspec.git',:tag => spec.version.to_s}"
+        extraSpecAttributes["pod_target_xcconfig"] = """{
+                    'PRODUCT_MODULE_NAME' => 'allshared',
+                    'KOTLIN_PROJECT_PATH' => ':allshared',
+                    'GENERATE_INFOPLIST_FILE' => 'YES',
+                }
+            """
+        extraSpecAttributes["user_target_xcconfig"] = """{
+                    'GENERATE_INFOPLIST_FILE' => 'YES'
+                }
+            """
     }
 }
 
